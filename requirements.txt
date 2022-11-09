@@ -2,7 +2,6 @@ gTTS==2.2.4
 jsonschema==4.16.0
 numpy==1.23.3
 pandas==1.5.0
-PyAudio==0.2.12
 pydub==0.25.1
 python-telegram-bot==13.14
 scikit-learn==1.1.2
