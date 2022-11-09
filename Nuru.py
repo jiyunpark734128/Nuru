@@ -59,7 +59,7 @@ def stt():
 #process B : embeding and finding Nuru answer
 def communicate():
     global Nuruchat
-    if userchat is not False :
+    while userchat is not False :
             embedding = model.encode(userchat)
             df['distance'] = df['embedding'].map(lambda x: cosine_similarity([embedding], [x]).squeeze())
             df.head()
