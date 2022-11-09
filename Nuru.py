@@ -59,16 +59,12 @@ def stt():
 #process B : embeding and finding Nuru answer
 def communicate():
     global Nuruchat
-    while userchat is not False :
-            embedding = model.encode(userchat)
-            df['distance'] = df['embedding'].map(lambda x: cosine_similarity([embedding], [x]).squeeze())
-            df.head()
-            encoded = df.loc[df['distance'].idxmax()]
-            Nuruchat = encoded['Nuru']
-            st.text('Nuru : {}'.format(Nuruchat))
-    else:
-        stt()
-
+    embedding = model.encode(userchat)
+    df['distance'] = df['embedding'].map(lambda x: cosine_similarity([embedding], [x]).squeeze())
+    df.head()
+    encoded = df.loc[df['distance'].idxmax()]
+    Nuruchat = encoded['Nuru']
+    st.text('Nuru : {}'.format(Nuruchat))
 
 # process C : tts
 
@@ -103,7 +99,10 @@ def tts():
 
 while userchat != '그만' :
     stt()
-    communicate()
-    tts()
-    if userchat == '그만' :
-        break
+    if userchat == False :
+        stt()
+    else :
+        communicate()
+        tts()
+        
+        
