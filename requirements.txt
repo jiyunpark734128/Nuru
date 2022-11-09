@@ -14,3 +14,4 @@ streamlit==1.14.0
 streamlit-chat==0.0.2.1
 torch==1.12.1
 transformers==4.22.1
+wheel==0.37.1
